@@ -21,8 +21,7 @@ public class Grid
     /**
      * @param
      */
-        int[][]t= new int [10][5];
-        
+        int[][]t= new int [10][5];        
     }
 
 }
