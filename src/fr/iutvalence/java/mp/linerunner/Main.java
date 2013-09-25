@@ -11,10 +11,18 @@ package fr.iutvalence.java.mp.linerunner;
  */
 
 
-public class LineRunner
+public class Main
 {
     // TODO (fixed) Misplaced comment (must be before class declaration)
+    /**
+     *
+     * @param args  no arguments expected
+     */
     
+    public static void main(String[] args){
+       
+        
+    }
 
     
 
