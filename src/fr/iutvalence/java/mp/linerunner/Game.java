@@ -1,7 +1,6 @@
 package fr.iutvalence.java.mp.linerunner;
 
-// TODO (fixed) Comment syntax does not follow Javadoc guidelines
-// TODO (fixed) Comment must be completed
+// TODO (fix) write a "real" comment
 /**
  *the class who contain character and the composante of the game
  */
