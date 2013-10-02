@@ -1,8 +1,9 @@
 package fr.iutvalence.java.mp.linerunner;
 
-// TODO (fix) write a "real" comment
+// TODO (fixed) write a "real" comment
 /**
- *the class who contain character and the composante of the game
+ * this class is one gameplay the rules is in the README file.
+ * 
  */
 
 public class Game
