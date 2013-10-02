@@ -6,9 +6,26 @@ package fr.iutvalence.java.mp.linerunner;
  * 
  */
 
+
 public class Game
 {
+    /**
+     * arguments
+     */
     
+    
+    /**
+     * constructeurs
+     */
+    public Grid()
+    {
+        new Grid();
+         
+    }
+    
+    /**
+     * methodes
+     */
 
     
 }
