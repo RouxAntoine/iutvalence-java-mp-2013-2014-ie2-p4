@@ -11,20 +11,34 @@ public class Game
 {
     /**
      * arguments
+     * new grid's creation
      */
+    private Grid grid;   
     
     
     /**
-     * constructeurs
+     * constructors
      */
-    public Grid()
+    public Game()
     {
-        new Grid();
+        this.grid = new Grid();
+        int i=1;
+        System.out.println(this.grid);
+        
+        
+        while(i==1)
+        {
+            this.grid.Scrolling();
+            try{
+                Thread.sleep(1000);
+            }catch(InterruptedException e){}
+            System.out.println(this.grid);
+        }
          
     }
     
     /**
-     * methodes
+     * methods
      */
 
     

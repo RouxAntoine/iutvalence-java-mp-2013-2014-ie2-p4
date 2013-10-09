@@ -1,6 +1,5 @@
 package fr.iutvalence.java.mp.linerunner;
 
-import java.lang.invoke.ConstantCallSite;
  /**
   * 
   * @author rouxan
@@ -20,10 +19,6 @@ public class Grid
     // TODO (fixed) initialize field in constructor, not here    
     // TODO (fixed) if it is supposed to be a constant, declare it as a constant
     private static final int CHARACTER=3;               //identification of the characters on the grid
- 
-    // TODO (fixed) initialize field in constructor, not here
-    // TODO (fixed) if it is supposed to be a constant, declare it as a constant
-    private static final int LOWHURDLE=0;               //identification of the low_hurdle on the grid
     
     // TODO (fixed) initialize field in constructor, not here
     // TODO (fixed) if it is supposed to be a constant, declare it as a constant
@@ -31,7 +26,7 @@ public class Grid
     
     // TODO (fixed) initialize field in constructor, not here
     // TODO (fixed) if it is supposed to be a constant, declare it as a constant
-    private static final int HIGHHURDLE=2;             //identification of the high_hurdle on the grid
+    private static final int HURDLE=2;             //identification of the high_hurdle on the grid
     
     // TODO (fixed) initialize field in constructor, not here
     // TODO (fixed) if it is supposed to be a constant, declare it as a constant
@@ -50,14 +45,16 @@ public class Grid
         this.GRID = new int[COLUMNS][ROWS];
         
         
-        for(int Y=0; Y<=ROWS;Y++)
+        for(int Y=0;Y<COLUMNS;Y++)
         {
-            for(int X=0;X<COLUMNS;X++)
+            for(int X=0; X<ROWS;X++)  
             {
-                this.GRID[X][Y]=1;
+                this.GRID[Y][X]=1;
             }
-            this.GRID[COLUMNS][Y]=4;
+            this.GRID[Y][ROWS-1]=4;
         }
+        this.GRID[2][ROWS-3]=3;
+        this.GRID[2][ROWS-2]=3;
         
     }
     
@@ -82,5 +79,47 @@ public class Grid
     {
         return this.GRID[x][y];
     }
+    
+    /**
+     *method who allow the grid scrolling  
+     */
+    
+    public void Scrolling()
+    {
+        
+        for(int Y=0;Y<COLUMNS-1;Y++)
+        {
+            for(int X=0; X<ROWS;X++)
+            {
+                if (this.GRID[Y+1][X]!=3 && this.GRID[Y][X]!=3)
+                {
+                    this.GRID[Y][X]=this.GRID[Y+1][X];
+                }
+                
+            }
+            this.GRID[Y][ROWS-1]=4;
+        }
+        
+    }
+
+    @Override
+    public String toString()
+    {
+        String result="";
+        
+        for (int i=0;i<ROWS;i++)
+        {
+            for (int j=0;j<COLUMNS;j++)
+            {
+               result+=this.GRID[j][i]; 
+            }
+            result+="\n";
+        }       
+               
+        return result;
+        
+    }
+    
+    
     
 }
