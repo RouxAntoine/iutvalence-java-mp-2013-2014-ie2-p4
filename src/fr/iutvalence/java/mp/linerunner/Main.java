@@ -1,7 +1,5 @@
 package fr.iutvalence.java.mp.linerunner;
 
-// TODO (fixed) Class name does not follow naming guidelines
-
 /**
  * set of level in the game this class contain the main menu: -play -result
  * -control
@@ -9,7 +7,7 @@ package fr.iutvalence.java.mp.linerunner;
 
 public class Main
 {
-    // TODO (fixed) Misplaced comment (must be before class declaration)
+    // TODO (fix) finish writing comment
     /**
      * 
      * @param args

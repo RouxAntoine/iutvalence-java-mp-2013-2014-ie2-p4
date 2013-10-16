@@ -8,34 +8,28 @@ package fr.iutvalence.java.mp.linerunner;
 
 public class Grid
 {
-    // TODO (fixed) declare field visibility
-    // TODO (fixed) rename field
+    // TODO (fix) write "Javadoc" comment
     private static final int ROWS=5;
-    
-    // TODO (fixed) declare field visibility
-    // TODO (fixed) rename field
+
+    // TODO (fix) write "Javadoc" comment
     private static final int COLUMNS=10;
     
-    // TODO (fixed) initialize field in constructor, not here    
-    // TODO (fixed) if it is supposed to be a constant, declare it as a constant
-    private static final int CHARACTER=3;               //identification of the characters on the grid
+    // TODO (fix) write "Javadoc" comment
+    private static final int CHARACTER=3;             
     
-    // TODO (fixed) initialize field in constructor, not here
-    // TODO (fixed) if it is supposed to be a constant, declare it as a constant
+    // TODO (fix) write "Javadoc" comment
     private static final int NOTHING=1;                  //identification of void space on the grid
     
-    // TODO (fixed) initialize field in constructor, not here
-    // TODO (fixed) if it is supposed to be a constant, declare it as a constant
+    // TODO (fix) write "Javadoc" comment
     private static final int HURDLE=2;             //identification of the high_hurdle on the grid
     
-    // TODO (fixed) initialize field in constructor, not here
-    // TODO (fixed) if it is supposed to be a constant, declare it as a constant
+    // TODO (fix) write "Javadoc" comment
     private static final int GROUND=4;                   //identification of the ground on the grid
         
+    // TODO (fix) write comment
+    // TODO (fix) comply with naming conventions
     private int[][] GRID;
     
-    
-    // TODO (fixed) write a comment
     
     /**
      * constructor of one grid size ROWS*COLUMNS
@@ -58,6 +52,8 @@ public class Grid
         
     }
     
+    // TODO (fix) finish writing comment
+    // TODO (fix) comply with naming conventions
     /**
      * 
      * @param x value in abscissa
@@ -69,6 +65,8 @@ public class Grid
         this.GRID[x][y]=value;
     }
     
+    // TODO (fix) finish writing comment
+    // TODO (fix) comply with naming conventions
     /**
      * 
      * @param x value in abscissa
@@ -79,11 +77,11 @@ public class Grid
     {
         return this.GRID[x][y];
     }
-    
+     
+    // TODO (fix) comply with naming conventions
     /**
      *method who allow the grid scrolling  
      */
-    
     public void Scrolling()
     {
         
@@ -102,6 +100,7 @@ public class Grid
         
     }
 
+    // TODO (fix) write comment
     @Override
     public String toString()
     {
