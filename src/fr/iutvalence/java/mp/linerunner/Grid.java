@@ -8,27 +8,48 @@ package fr.iutvalence.java.mp.linerunner;
 
 public class Grid
 {
-    // TODO (fix) write "Javadoc" comment
+    // TODO (fixed) write "Javadoc" comment
+    /**
+     * declaration of row's number 
+     */
     private static final int ROWS=5;
 
-    // TODO (fix) write "Javadoc" comment
+    // TODO (fixed) write "Javadoc" comment
+    /**
+     * declaration of column's number
+     */
     private static final int COLUMNS=10;
     
-    // TODO (fix) write "Javadoc" comment
+    // TODO (fixed) write "Javadoc" comment
+    /**
+     * number which represent the character in the grid
+     */
     private static final int CHARACTER=3;             
     
-    // TODO (fix) write "Javadoc" comment
+    // TODO (fixed) write "Javadoc" comment
+    /**
+     * number which represent the free space in the grid
+     */
     private static final int NOTHING=1;                  //identification of void space on the grid
     
-    // TODO (fix) write "Javadoc" comment
+    // TODO (fixed) write "Javadoc" comment
+    /**
+     * number which represent hurdles in the grid
+     */
     private static final int HURDLE=2;             //identification of the high_hurdle on the grid
     
-    // TODO (fix) write "Javadoc" comment
-    private static final int GROUND=4;                   //identification of the ground on the grid
-        
-    // TODO (fix) write comment
-    // TODO (fix) comply with naming conventions
-    private int[][] GRID;
+    // TODO (fixed) write "Javadoc" comment
+    /**
+     * number which represent the ground in the grid
+     */
+    private static final int GROUND=4;
+            
+    // TODO (fixed) write comment
+    // TODO (fixed) comply with naming conventions
+    /**
+     * grid's declaration
+     */
+    private int[][] grid;
     
     
     /**
@@ -36,72 +57,98 @@ public class Grid
      */
     public Grid()
     {
-        this.GRID = new int[COLUMNS][ROWS];
+        this.grid = new int[COLUMNS][ROWS];
         
         
         for(int Y=0;Y<COLUMNS;Y++)
         {
             for(int X=0; X<ROWS;X++)  
             {
-                this.GRID[Y][X]=1;
+                this.grid[Y][X]=1;
             }
-            this.GRID[Y][ROWS-1]=4;
+            this.grid[Y][ROWS-1]=4;
         }
-        this.GRID[2][ROWS-3]=3;
-        this.GRID[2][ROWS-2]=3;
+        this.grid[2][ROWS-3]=3;
+        this.grid[2][ROWS-2]=3;
         
     }
     
-    // TODO (fix) finish writing comment
-    // TODO (fix) comply with naming conventions
+    // TODO (fixed) finish writing comment
+    // TODO (fixed) comply with naming conventions
     /**
-     * 
+     * define a value in the grid at [x;y]
      * @param x value in abscissa
      * @param y value in ordered
      * @param value that you want assign to the compartment in x,y
      */
-    public void DefineCompartment(int x, int y, int value)
+    public void defineCompartment(int x, int y, int value)
     {
-        this.GRID[x][y]=value;
+        this.grid[x][y]=value;
     }
     
-    // TODO (fix) finish writing comment
-    // TODO (fix) comply with naming conventions
+    // TODO (fixed) finish writing comment
+    // TODO (fixed) comply with naming conventions
     /**
-     * 
+     * allow to know values in the grid in [x;y]  
      * @param x value in abscissa
      * @param y value in ordered
      * @return return the value of the compartment x,y
+     *
      */
-    public int RecoverCompartment(int x, int y)
+    public int recoverCompartment(int x, int y)
     {
-        return this.GRID[x][y];
+        return this.grid[x][y];
     }
      
-    // TODO (fix) comply with naming conventions
+    // TODO (fixed) comply with naming conventions
     /**
      *method who allow the grid scrolling  
      */
-    public void Scrolling()
+    public void scrolling()
     {
-        
+        if (this.grid[8][3]!=2)
+        {
+            this.grid[9][3]=2;
+        }
         for(int Y=0;Y<COLUMNS-1;Y++)
         {
             for(int X=0; X<ROWS;X++)
             {
-                if (this.GRID[Y+1][X]!=3 && this.GRID[Y][X]!=3)
+                if (this.grid[Y+1][X]!=3 && this.grid[Y][X]!=3)
                 {
-                    this.GRID[Y][X]=this.GRID[Y+1][X];
+                    this.grid[Y][X]=this.grid[Y+1][X];
+                }
+                else if (this.grid[Y+1][X]==2 && this.grid[Y][X]==3)
+                {
+                    /*
+                    while (1)
+                    {
+                        try{
+                            Thread.sleep(1000);
+                        }catch(InterruptedException e){}
+                        System.out.print("game over!");
+                        if (appuie sur le touche )
+                        {
+                            wend;
+                        }
+                    }
+                    
+                    
+                    en cour ....
+                    */
                 }
                 
             }
-            this.GRID[Y][ROWS-1]=4;
+            this.grid[Y][ROWS-1]=4;
         }
+        this.grid[9][3]=1;
         
     }
 
-    // TODO (fix) write comment
-    @Override
+    // TODO (fixed) write comment
+    /**
+     * string method declaration for a grid type 
+     */
     public String toString()
     {
         String result="";
@@ -110,7 +157,7 @@ public class Grid
         {
             for (int j=0;j<COLUMNS;j++)
             {
-               result+=this.GRID[j][i]; 
+               result+=this.grid[j][i]; 
             }
             result+="\n";
         }       

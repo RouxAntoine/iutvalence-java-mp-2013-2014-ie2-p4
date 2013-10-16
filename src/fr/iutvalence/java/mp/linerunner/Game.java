@@ -27,7 +27,7 @@ public class Game
         
         while(i==1)
         {
-            this.grid.Scrolling();
+            this.grid.scrolling();
             try{
                 Thread.sleep(1000);
             }catch(InterruptedException e){}
