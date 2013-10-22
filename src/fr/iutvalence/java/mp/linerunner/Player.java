@@ -15,6 +15,7 @@ public class Player
     public boolean jump()
     {
         private boolean isjump;
+        
         private int rand;
         /*
         

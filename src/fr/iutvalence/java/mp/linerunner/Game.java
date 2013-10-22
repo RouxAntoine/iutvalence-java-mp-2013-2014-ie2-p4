@@ -8,11 +8,9 @@ public class Game
 {
     // TODO (fix) rewrite comment
     /**
-     * arguments
-     * new grid's creation
+     * arguments new grid's creation
      */
-    private Grid grid;   
-    
+    private Grid grid;
 
     // TODO (fix) detail comment
     /**
@@ -21,24 +19,26 @@ public class Game
     public Game()
     {
         this.grid = new Grid();
-        int i=1;
+        int i = 1;
         System.out.println(this.grid);
-        
-        
-        while(i==1)
+
+        while (i == 1)
         {
             this.grid.scrolling();
-            try{
+            try
+            {
                 Thread.sleep(1000);
-            }catch(InterruptedException e){}
+            }
+            catch (InterruptedException e)
+            {
+            }
             System.out.println(this.grid);
         }
-         
+
     }
-    
+
     /**
      * methods
      */
 
-    
 }
