@@ -11,6 +11,10 @@ public class Game
      * creation of one variable of type grid who receive the grid return by the class grid
      */
     private Grid grid;
+    /**
+     * creation of one new player who simulate the jump 
+     */
+    private Player player1;
 
     // TODO (fixed) detail comment
     /**
@@ -19,12 +23,15 @@ public class Game
     public Game()
     {
         this.grid = new Grid();
-        int i = 1;
+        this.player1= new Player();
+        
+        boolean i = false;
+        
         System.out.println(this.grid);
 
-        while (i == 1)
+        while (i == false)
         {
-            this.grid.scrolling();
+            i=this.grid.scrolling();
             try
             {
                 Thread.sleep(1000);
@@ -33,6 +40,13 @@ public class Game
             {
             }
             System.out.println(this.grid);
+            
+            
+            if (this.player1.jump())
+            {
+                
+            }
+            
         }
 
     }

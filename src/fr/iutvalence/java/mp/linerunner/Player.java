@@ -1,5 +1,8 @@
 package fr.iutvalence.java.mp.linerunner;
 
+import java.util.Random;
+
+
 /**
  * 
  * @author rouxan vignandc
@@ -14,17 +17,15 @@ public class Player
      */
     public boolean jump()
     {
-        private boolean isjump;
+        boolean isjump=false;
         
-        private int rand;
-        /*
-        
-        rand= new Random(); // import java.util.Random; 
-        valeur = r.nextInt(n);
-        
-        en cour ........
-        
-        */
+        int valeur = new Random().nextInt(4);
+       
+        if (valeur==0)
+        {
+            isjump=true;
+        }   
+        System.out.print("\n"+valeur+"\n");
         
         
         return isjump;

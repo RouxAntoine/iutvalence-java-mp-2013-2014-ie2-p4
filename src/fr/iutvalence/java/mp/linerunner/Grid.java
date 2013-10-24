@@ -13,6 +13,11 @@ public class Grid
     private static final int ROWS = 5;
 
     /**
+     * declaration of a hole number in the ground
+     */
+    private static final int  HOLE=0;
+    
+    /**
      * declaration of column's number
      */
     private static final int COLUMNS = 10;
@@ -25,6 +30,7 @@ public class Grid
     /**
      * number which represent the free space in the grid
      */
+        
     private static final int NOTHING = 1; // identification of void space on the
                                           // grid
 
@@ -39,7 +45,7 @@ public class Grid
      */
     private static final int GROUND = 4;
 
-    // TODO (fix) rewrite comment. Do not say that you declare a grid (it is self-contained) but say 
+    // TODO (fixed) rewrite comment. Do not say that you declare a grid (it is self-contained) but say 
     // what is the grid
     /**
      * grid's declaration who is a area who contain many numbers who correspond to a hurdle, character and void
@@ -61,8 +67,8 @@ public class Grid
             }
             this.grid[Y][ROWS - 1] = 4;
         }
-        this.grid[2][ROWS - 3] = 3;
-        this.grid[2][ROWS - 2] = 3;
+        this.grid[2][ROWS - 3] = CHARACTER;
+        this.grid[2][ROWS - 2] = CHARACTER;
 
     }
 
@@ -98,11 +104,13 @@ public class Grid
 
     /**
      * method that makes the grid scrolling
+     * @return true if the character will die
      */
-    public void scrolling()
+    public boolean scrolling()
     {
         final Integer x_hurdle=9;
         final Integer y_hurdle=3;
+        boolean game_over=false;
         
         
         // TODO (fixed) do not use hard-coded values but constants
@@ -111,6 +119,7 @@ public class Grid
         {
             this.grid[x_hurdle][y_hurdle] = HURDLE;
         }
+        
         for (int Y = 0; Y < COLUMNS - 1; Y++)
         {
             for (int X = 0; X < ROWS; X++)
@@ -119,23 +128,17 @@ public class Grid
                 {
                     this.grid[Y][X] = this.grid[Y + 1][X];
                 }
-                else if (this.grid[Y + 1][X] == HURDLE && this.grid[Y][X] == CHARACTER)
-                {
-                    /*
-                     * while (1) { try{ Thread.sleep(1000);
-                     * }catch(InterruptedException e){}
-                     * System.out.print("game over!"); if (appuie sur le touche
-                     * ) { wend; } }
-                     * 
-                     * 
-                     * en cour ....
-                     */
-                }
 
             }
-            this.grid[Y][ROWS - 1] = 4;
+            this.grid[Y][ROWS - 1] = GROUND;
         }
-        this.grid[9][3] = 1;
+        if (this.grid [2][ROWS-1]==HOLE && this.grid [2][ROWS-2]==CHARACTER)
+        {
+            game_over=true;
+        }
+        
+        this.grid[x_hurdle][y_hurdle] = NOTHING;
+        return game_over;
 
     }
 
