@@ -6,15 +6,15 @@ package fr.iutvalence.java.mp.linerunner;
  */
 public class Game
 {
-    // TODO (fix) rewrite comment
+    // TODO (fixed) rewrite comment
     /**
-     * arguments new grid's creation
+     * creation of one variable of type grid who receive the grid return by the class grid
      */
     private Grid grid;
 
-    // TODO (fix) detail comment
+    // TODO (fixed) detail comment
     /**
-     * constructors
+     * constructors who create a new grid for each new game and make a scroll of this grid
      */
     public Game()
     {

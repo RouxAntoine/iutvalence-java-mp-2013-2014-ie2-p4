@@ -42,7 +42,7 @@ public class Grid
     // TODO (fix) rewrite comment. Do not say that you declare a grid (it is self-contained) but say 
     // what is the grid
     /**
-     * grid's declaration
+     * grid's declaration who is a area who contain many numbers who correspond to a hurdle, character and void
      */
     private int[][] grid;
 
@@ -101,20 +101,25 @@ public class Grid
      */
     public void scrolling()
     {
-        // TODO (fix) do not use hard-coded values but constants
-        if (this.grid[8][3] != 2)
+        final Integer x_hurdle=9;
+        final Integer y_hurdle=3;
+        
+        
+        // TODO (fixed) do not use hard-coded values but constants
+        
+        if (this.grid[x_hurdle-1][y_hurdle] != HURDLE)
         {
-            this.grid[9][3] = 2;
+            this.grid[x_hurdle][y_hurdle] = HURDLE;
         }
         for (int Y = 0; Y < COLUMNS - 1; Y++)
         {
             for (int X = 0; X < ROWS; X++)
             {
-                if (this.grid[Y + 1][X] != 3 && this.grid[Y][X] != 3)
+                if (this.grid[Y + 1][X] != CHARACTER && this.grid[Y][X] != CHARACTER)
                 {
                     this.grid[Y][X] = this.grid[Y + 1][X];
                 }
-                else if (this.grid[Y + 1][X] == 2 && this.grid[Y][X] == 3)
+                else if (this.grid[Y + 1][X] == HURDLE && this.grid[Y][X] == CHARACTER)
                 {
                     /*
                      * while (1) { try{ Thread.sleep(1000);

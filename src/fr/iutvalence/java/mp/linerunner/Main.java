@@ -7,11 +7,11 @@ package fr.iutvalence.java.mp.linerunner;
 
 public class Main
 {
-    // TODO (fix) finish writing comment
+    // TODO (fixed) finish writing comment
     /**
      * 
-     * @param args
-     *            no arguments expected
+     * @param args no arguments expected
+     * main of the program who contains the creation of the game
      */
 
     public static void main(String[] args)
