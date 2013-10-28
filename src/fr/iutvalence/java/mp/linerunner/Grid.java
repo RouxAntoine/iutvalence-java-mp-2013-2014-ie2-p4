@@ -15,8 +15,8 @@ public class Grid
     /**
      * declaration of a hole number in the ground
      */
-    private static final int  HOLE=0;
-    
+    private static final int HOLE = 0;
+
     /**
      * declaration of column's number
      */
@@ -30,7 +30,7 @@ public class Grid
     /**
      * number which represent the free space in the grid
      */
-        
+
     private static final int NOTHING = 1; // identification of void space on the
                                           // grid
 
@@ -44,14 +44,14 @@ public class Grid
      * number which represent the ground in the grid
      */
     private static final int GROUND = 4;
-
-    // TODO (fixed) rewrite comment. Do not say that you declare a grid (it is self-contained) but say 
-    // what is the grid
+    
     /**
-     * grid's declaration who is a area who contain many numbers who correspond to a hurdle, character and void
+     * grid's declaration who is a area who contain many numbers who correspond
+     * to a hurdle, character and void
      */
     private int[][] grid;
 
+    // TODO (fix) detail comment (how is the grid once created?)
     /**
      * constructor of one grid size ROWS*COLUMNS
      */
@@ -79,16 +79,17 @@ public class Grid
      *            value in abscissa
      * @param y
      *            value in ordered
-     * @param value
+     * @param element
      *            that you want assign to the compartment in x,y
      */
-    public void defineCompartment(int x, int y, int value)
+    // TODO (fix) gather the two coordinates is a single object
+    public void setElementAt(int x, int y, int element)
     {
-        this.grid[x][y] = value;
+        this.grid[x][y] = element;
     }
 
     /**
-     * allow to know values in the grid in [x;y]
+     * allows to know values in the grid in [x;y]
      * 
      * @param x
      *            value in abscissa
@@ -97,29 +98,30 @@ public class Grid
      * @return return the value of the compartment x,y
      * 
      */
-    public int recoverCompartment(int x, int y)
+    public int getElementAt(int x, int y)
     {
         return this.grid[x][y];
     }
 
     /**
      * method that makes the grid scrolling
+     * 
      * @return true if the character will die
      */
+    // TODO (fix) this method is game-relatd and should be moved to Game
     public boolean scrolling()
     {
-        final Integer x_hurdle=9;
-        final Integer y_hurdle=3;
-        boolean game_over=false;
-        
-        
+        final Integer x_hurdle = 9;
+        final Integer y_hurdle = 3;
+        boolean game_over = false;
+
         // TODO (fixed) do not use hard-coded values but constants
-        
-        if (this.grid[x_hurdle-1][y_hurdle] != HURDLE)
+
+        if (this.grid[x_hurdle - 1][y_hurdle] != HURDLE)
         {
             this.grid[x_hurdle][y_hurdle] = HURDLE;
         }
-        
+
         for (int Y = 0; Y < COLUMNS - 1; Y++)
         {
             for (int X = 0; X < ROWS; X++)
@@ -132,11 +134,11 @@ public class Grid
             }
             this.grid[Y][ROWS - 1] = GROUND;
         }
-        if (this.grid [2][ROWS-1]==HOLE && this.grid [2][ROWS-2]==CHARACTER)
+        if (this.grid[2][ROWS - 1] == HOLE && this.grid[2][ROWS - 2] == CHARACTER)
         {
-            game_over=true;
+            game_over = true;
         }
-        
+
         this.grid[x_hurdle][y_hurdle] = NOTHING;
         return game_over;
 
