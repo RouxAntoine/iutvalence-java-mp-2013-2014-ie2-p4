@@ -6,8 +6,40 @@ package fr.iutvalence.java.mp.linerunner;
  */
 public class Position
 {
-    private int x;
-    private int y;
+    /**
+     * 
+     */
+    private final int x;
+    /**
+     * 
+     */
+    private final int y;
+    
+    /**
+     * @param x0 value witch initialize x
+     * @param y0 value witch initialize y
+     */
+    public Position(int x0, int y0)
+    {
+        this.x=x0;
+        this.y=y0;
+    }
+
+    /**
+     * @return the value of x
+     */
+    public int getX()
+    {
+        return this.x;
+    }
+
+    /**
+     * @return the value of y
+     */
+    public int getY()
+    {
+        return this.y;
+    }
     
     
 }
