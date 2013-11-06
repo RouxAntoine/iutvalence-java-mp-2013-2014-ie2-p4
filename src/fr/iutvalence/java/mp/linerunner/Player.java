@@ -16,8 +16,8 @@ public class Player
      * 
      * @return a Boolean
      */
-    // TODO (fix) rename this method (more explicit)
-    public boolean jump()
+    // TODO (fixed) rename this method (more explicit)
+    public boolean moveUp()
     {
         boolean isjump = false;
 

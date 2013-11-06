@@ -51,27 +51,28 @@ public class Grid
      */
     private int[][] grid;
 
-    // TODO (fix) detail comment (how is the grid once created?)
+    // TODO (fixed) detail comment (how is the grid once created?)
     /**
+     * once created we've got a character on the screen and the player will jump or creep behind hurdles
      * constructor of one grid size ROWS*COLUMNS
      */
     public Grid()
     {
-        this.grid = new int[COLUMNS][ROWS];
+        this.setGrid(new int[COLUMNS][ROWS]);
 
         for (int Y = 0; Y < COLUMNS; Y++)
         {
             for (int X = 0; X < ROWS; X++)
             {
-                this.grid[Y][X] = 1;
+                this.getGrid()[Y][X] = 1;
             }
-            this.grid[Y][ROWS - 1] = 4;
+            this.getGrid()[Y][ROWS - 1] = 4;
         }
-        this.grid[2][ROWS - 3] = CHARACTER;
-        this.grid[2][ROWS - 2] = CHARACTER;
-
+        this.getGrid()[2][ROWS - 3] = CHARACTER;
+        this.getGrid()[2][ROWS - 2] = CHARACTER;
     }
 
+    // TODO (fixed) gather the two coordinates is a single object
     /**
      * define a value in the grid at [x;y]
      * 
@@ -82,12 +83,12 @@ public class Grid
      * @param element
      *            that you want assign to the compartment in x,y
      */
-    // TODO (fix) gather the two coordinates is a single object
-    public void setElementAt(int x, int y, int element)
+    public void setElementAt(Position p,  int element)
     {
-        this.grid[x][y] = element;
+     
     }
 
+    
     /**
      * allows to know values in the grid in [x;y]
      * 
@@ -95,55 +96,15 @@ public class Grid
      *            value in abscissa
      * @param y
      *            value in ordered
+     * @return 
      * @return return the value of the compartment x,y
      * 
      */
-    public int getElementAt(int x, int y)
+    public int[] getElementAt(Position p)
     {
-        return this.grid[x][y];
+        return resultat;
     }
-
-    /**
-     * method that makes the grid scrolling
-     * 
-     * @return true if the character will die
-     */
-    // TODO (fix) this method is game-relatd and should be moved to Game
-    public boolean scrolling()
-    {
-        final Integer x_hurdle = 9;
-        final Integer y_hurdle = 3;
-        boolean game_over = false;
-
-        // TODO (fixed) do not use hard-coded values but constants
-
-        if (this.grid[x_hurdle - 1][y_hurdle] != HURDLE)
-        {
-            this.grid[x_hurdle][y_hurdle] = HURDLE;
-        }
-
-        for (int Y = 0; Y < COLUMNS - 1; Y++)
-        {
-            for (int X = 0; X < ROWS; X++)
-            {
-                if (this.grid[Y + 1][X] != CHARACTER && this.grid[Y][X] != CHARACTER)
-                {
-                    this.grid[Y][X] = this.grid[Y + 1][X];
-                }
-
-            }
-            this.grid[Y][ROWS - 1] = GROUND;
-        }
-        if (this.grid[2][ROWS - 1] == HOLE && this.grid[2][ROWS - 2] == CHARACTER)
-        {
-            game_over = true;
-        }
-
-        this.grid[x_hurdle][y_hurdle] = NOTHING;
-        return game_over;
-
-    }
-
+    
     /**
      * @see java.lang.Object#toString()
      */
@@ -155,13 +116,22 @@ public class Grid
         {
             for (int j = 0; j < COLUMNS; j++)
             {
-                result += this.grid[j][i];
+                result += this.getGrid()[j][i];
             }
             result += "\n";
         }
 
         return result;
 
+    }
+
+
+    /**
+    * method who return the value who check to an hurdle on the grid
+    */
+    public int getHurdle()
+    {
+        return HURDLE;
     }
 
 }
