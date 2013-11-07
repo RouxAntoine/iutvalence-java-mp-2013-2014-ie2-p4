@@ -7,11 +7,12 @@ package fr.iutvalence.java.mp.linerunner;
 public class Position
 {
     /**
-     * 
+     * coordinate in abscissa
      */
     private final int x;
+    
     /**
-     * 
+     * coordinate in orderly
      */
     private final int y;
     

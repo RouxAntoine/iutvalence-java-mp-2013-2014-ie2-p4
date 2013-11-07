@@ -1,28 +1,39 @@
 package fr.iutvalence.java.mp.linerunner;
 
-import java.util.Random;
-
 /**
  * this class is one gameplay whose rules are in the README file.
  * 
  */
 public class Game
 {
-    // TODO (fixed) rewrite comment
-    // The aim of the comment is not to say that something is declared but to say what it is
-    // with regards to the application
+    
     /**
-     * Creation of one variable of type grid who receive the grid return by the
-     * class grid. The aim of this grid is to realize an interface for the player. 
+     * declaration of row's number
      */
-    private Grid grid;
+    public static final int ROWS = 5;
+
+    /**
+     * declaration of column's number
+     */
+    public static final int COLUMNS = 10;
+    
+    /**
+     * its the size of the table who contain all the hurdle at the time "t", "10" is the number of columns
+     */
+    public static final int SIZE_TAB_HURDLE=10;
+    
     
     // TODO (fixed) rewrite comment
     /**
      * declaration of one variable who contain one object player
      * (it will be like a joy-stick)
      */
-    private Player player1;
+    private Element player1;
+    
+    /**
+     * {@link Tab_hurdle} a table who contain all the element on the grid
+     */
+    private Tab_hurdle tab_hurdle1;
 
     // TODO (fixed) detail comment (how is the game once created?)
     // TODO (fix) this constructor should only initialize a game, not play it
@@ -34,24 +45,21 @@ public class Game
      */
     public Game()
     {
-        this.grid = new Grid();
-        this.player1 = new Player();
-
+        this.player1 = new Element(2,3,2);
+        this.tab_hurdle1 = new Tab_hurdle(SIZE_TAB_HURDLE);
+        
         boolean i = false;
 
-        System.out.println(this.grid);
 
         while (i == false)
         {
-            i = this.grid.scrolling();
             try
             {
                 Thread.sleep(1000);
             }
-            catch (InterruptedException e)
-            {
-            }
-            System.out.println(this.grid);
+            catch (InterruptedException e){}
+            
+            System.out.print(this.player1+"\n");
 
             if (this.player1.moveUp())
             {
@@ -64,11 +72,15 @@ public class Game
     
 
 
+ 
+    
+/*
+
     /**
      * method that makes the grid scrolling
      * 
      * @return true if the character will die
-     */
+     //
     // TODO (fix) this method is game-related and should be moved to Game
     public boolean scrolling()
     {
@@ -78,7 +90,7 @@ public class Game
 
         // TODO (fixed) do not use hard-coded values but constants
 
-        if (this.grid.getGrid()[x_hurdle - 1][y_hurdle] != this.grid.getHurdle())
+        if (this.grid.[x_hurdle - 1][y_hurdle] != this.grid.getHurdle())
         {
             this.grid[x_hurdle][y_hurdle] = HURDLE;
         }
@@ -104,10 +116,6 @@ public class Game
         return game_over;
 
     }
-    
-
-    /**
-     * methods
-     */
+    */
 
 }
