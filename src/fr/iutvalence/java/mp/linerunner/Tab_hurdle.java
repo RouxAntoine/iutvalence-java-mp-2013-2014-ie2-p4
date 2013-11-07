@@ -24,9 +24,17 @@ private Element[] tab;
      
      for(int i = 0; i <= size-1;i++)
      {
+        // this.tab[i]=1;
+     }
+ }
+ 
+ /**
+  * add one line who contain the random hurdle
+  */
+ public void addline()
+ {
          int valeur = new Random().nextInt(4);
          this.tab[i]= new Element(Game.COLUMNS, valeur);
-     }
  }
 
 }
