@@ -34,7 +34,7 @@ private Element[] tab;
  public void addline()
  {
          int valeur = new Random().nextInt(4);
-         this.tab[i]= new Element(Game.COLUMNS, valeur);
+         //this.tab[i]= new Element(Game.COLUMNS, valeur);
  }
 
 }

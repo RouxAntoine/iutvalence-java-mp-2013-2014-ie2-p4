@@ -19,17 +19,20 @@ public class Display
     public Display(Tab_hurdle Hurdles)
     {
         this.screen=new int [Game.ROWS][Game.COLUMNS];
-        for(int i=0;i<=Game.ROWS;i++)
+        
+        for(int i=0;i<= Game.ROWS;i++)
         {
-            for(int j=0;j<Game.COLUMNS;j++)
+            int j;
+            for(j=0;j<= Game.COLUMNS;j++)
             {
                 this.screen[i][j]=1;
             }
-            this.screen[i][j]=4
+            this.screen[i][j]=4;
             
         }
     }
 
+    
     public String toString()
     {
         String result = "";
@@ -38,7 +41,7 @@ public class Display
         {
             for (int j = 0; j < Game.COLUMNS; j++)
             {
-                
+                System.out.print(this.screen[i][j]);
             }
             result += "\n";
         }

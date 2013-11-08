@@ -34,6 +34,11 @@ public class Game
      * {@link Tab_hurdle} a table who contain all the element on the grid
      */
     private Tab_hurdle tab_hurdle1;
+    
+    /**
+     * create a variable who contain the object who can display the game
+     */
+    private Display screen;
 
     // TODO (fixed) detail comment (how is the game once created?)
     // TODO (fix) this constructor should only initialize a game, not play it
@@ -47,19 +52,21 @@ public class Game
     {
         this.player1 = new Element(2,3,2);
         this.tab_hurdle1 = new Tab_hurdle(SIZE_TAB_HURDLE);
+        this.screen = new Display(this.tab_hurdle1);
         
         boolean i = false;
 
 
         while (i == false)
         {
+            System.out.println(this.screen.toString());
             try
             {
                 Thread.sleep(1000);
             }
             catch (InterruptedException e){}
             
-            System.out.print(this.player1+"\n");
+            
 
             if (this.player1.moveUp())
             {
