@@ -17,10 +17,6 @@ public class Game
      */
     public static final int COLUMNS = 10;
     
-    /**
-     * its the size of the table who contain all the hurdle at the time "t", "10" is the number of columns
-     */
-    public static final int SIZE_TAB_HURDLE=10;
     
     
     // TODO (fixed) rewrite comment
@@ -30,15 +26,11 @@ public class Game
      */
     private Element player1;
     
-    /**
-     * {@link Tab_hurdle} a table who contain all the element on the grid
-     */
-    private Tab_hurdle tab_hurdle1;
     
     /**
      * create a variable who contain the object who can display the game
      */
-    private Display screen;
+    private Grid grid;
 
     // TODO (fixed) detail comment (how is the game once created?)
     // TODO (fix) this constructor should only initialize a game, not play it
@@ -50,22 +42,30 @@ public class Game
      */
     public Game()
     {
-        this.player1 = new Element(2,3,2);
-        this.tab_hurdle1 = new Tab_hurdle(SIZE_TAB_HURDLE);
-        this.screen = new Display(this.tab_hurdle1);
-        
+        this.player1 = new Element(ROWS-3,2,2);
+        this.grid = new Grid();
+       
+    }
+    
+    /**
+     * 
+     */
+    public void play()
+    {
         boolean i = false;
-
+        
 
         while (i == false)
         {
-            System.out.println(this.screen.toString());
+          System.out.print(this + "\n");
+            
+            
             try
             {
                 Thread.sleep(1000);
             }
             catch (InterruptedException e){}
-            
+            this.scrolling();
             
 
             if (this.player1.moveUp())
@@ -74,32 +74,77 @@ public class Game
             }
 
         }
-
+        
     }
     
-
-
- 
+        
+        
     
-/*
+
+/**
+ * @param joueur 
+ * @see java.lang.Object#toString()
+ */
+public String toString()
+{
+    boolean caracters=false;
+    String result = "";
+
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLUMNS; j++)
+        {
+            
+            if (i==this.player1.getPosition().getX() && j== this.player1.getPosition().getY())
+            {
+                result += 3;
+                caracters=false;
+            }
+            else
+            {
+                result += this.grid.grid[j][i];
+            }
+            
+        }
+        result += "\n";
+    }
+
+    return result;
+}
+    
+   
 
     /**
      * method that makes the grid scrolling
      * 
      * @return true if the character will die
-     //
+     */
+
     // TODO (fix) this method is game-related and should be moved to Game
+   
     public boolean scrolling()
     {
         final Integer x_hurdle = 9;
         final Integer y_hurdle = 3;
         boolean game_over = false;
 
-        // TODO (fixed) do not use hard-coded values but constants
-
-        if (this.grid.[x_hurdle - 1][y_hurdle] != this.grid.getHurdle())
+        for (int Y = 0; Y < COLUMNS - 1; Y++)
         {
-            this.grid[x_hurdle][y_hurdle] = HURDLE;
+            for (int X = 0; X < ROWS; X++)
+            {
+                    this.grid.grid[Y][X] = this.grid.grid[Y + 1][X];
+            }
+            this.grid.grid[Y][ROWS - 1] = 4;
+        }
+        return game_over;
+    }
+        
+        /**
+         * // TODO (fixed) do not use hard-coded values but constants
+
+        if (this.grid.grid[x_hurdle - 1][y_hurdle] != this.grid.getHurdle())
+        {
+            this.grid.grid[x_hurdle][y_hurdle] = HURDLE;
         }
 
         for (int Y = 0; Y < COLUMNS - 1; Y++)
@@ -121,8 +166,8 @@ public class Game
 
         this.grid[x_hurdle][y_hurdle] = NOTHING;
         return game_over;
-
-    }
-    */
+         **/
+        
+        
 
 }

@@ -6,7 +6,7 @@ import java.util.Random;
  * @author rouxan
  *
  */
-public class Tab_hurdle
+public class TabHurdle
 {
     
  /**
@@ -18,7 +18,7 @@ private Element[] tab;
  * @param size of the tab of Element
  * constructor who create the table who contain 10 element
  */
- public Tab_hurdle(int size)
+ public TabHurdle(int size)
  {
      this.tab=new Element[size];
      

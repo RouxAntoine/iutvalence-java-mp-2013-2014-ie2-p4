@@ -14,10 +14,17 @@ public class Main
      *            no arguments expected
      * 
      */
-
+    
+    
+    
+    
     public static void main(String[] args)
     {
-        new Game();
+        Game currentGame;
+        
+        currentGame = new Game();
+        currentGame.play();
+        
     }
 
 }

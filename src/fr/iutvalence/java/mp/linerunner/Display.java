@@ -16,20 +16,25 @@ public class Display
      * constructors
      * @param Hurdles the table who contain all the hurdle
      */
-    public Display(Tab_hurdle Hurdles)
+    public Display(TabHurdle Hurdles)
     {
         this.screen=new int [Game.ROWS][Game.COLUMNS];
         
-        for(int i=0;i<= Game.ROWS;i++)
+        for(int j=0;j< Game.COLUMNS;j++)
         {
-            int j;
-            for(j=0;j<= Game.COLUMNS;j++)
+            for(int i=0;i< Game.ROWS;i++)
             {
-                this.screen[i][j]=1;
+                if (i==Game.ROWS-1)
+                {
+                    this.screen[i][j]=4;
+                }
+                else
+                {
+                    this.screen[i][j]=1;
+                }
             }
-            this.screen[i][j]=4;
-            
         }
+        
     }
 
     
@@ -43,7 +48,7 @@ public class Display
             {
                 System.out.print(this.screen[i][j]);
             }
-            result += "\n";
+            System.out.print("\n");
         }
 
         return result;
