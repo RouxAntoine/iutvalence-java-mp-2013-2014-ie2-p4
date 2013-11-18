@@ -18,7 +18,6 @@ public class Game
     public static final int COLUMNS = 10;
     
     
-    
     // TODO (fixed) rewrite comment
     /**
      * declaration of one variable who contain one object player
@@ -167,7 +166,15 @@ public String toString()
         this.grid[x_hurdle][y_hurdle] = NOTHING;
         return game_over;
          **/
+    
+    /**
+     * this method allow to insert a new obstacle in the grid with a random position
+     */
+    public void obstacle()
+    {
         
+    }
+    
         
 
 }
