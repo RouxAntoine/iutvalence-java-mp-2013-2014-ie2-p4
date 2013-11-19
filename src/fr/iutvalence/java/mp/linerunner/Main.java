@@ -6,7 +6,6 @@ package fr.iutvalence.java.mp.linerunner;
 
 public class Main
 {
-    // TODO (fixed) finish writing comment
     /**
      * main of the program that contains the creation of the game
      * 
@@ -14,17 +13,11 @@ public class Main
      *            no arguments expected
      * 
      */
-    
-    
-    
-    
     public static void main(String[] args)
     {
         Game currentGame;
-        
+
         currentGame = new Game();
         currentGame.play();
-        
     }
-
 }

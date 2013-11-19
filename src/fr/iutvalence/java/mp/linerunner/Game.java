@@ -18,22 +18,18 @@ public class Game
     public static final int COLUMNS = 10;
     
     
-    // TODO (fixed) rewrite comment
+    // TODO (fix) rewrite comment
     /**
      * declaration of one variable who contain one object player
      * (it will be like a joy-stick)
      */
     private Element player1;
     
-    
     /**
      * create a variable who contain the object who can display the game
      */
     private Grid grid;
 
-    // TODO (fixed) detail comment (how is the game once created?)
-    // TODO (fix) this constructor should only initialize a game, not play it
-    // move the code that plays the game is a method called "play"
     /**
      * once created we've got a character on the screen and the player will jump or creep behind hurdles
      * constructors who create a new grid for each new game and make a scroll of
@@ -42,8 +38,7 @@ public class Game
     public Game()
     {
         this.player1 = new Element(ROWS-3,2,2);
-        this.grid = new Grid();
-       
+        this.grid = new Grid();  
     }
     
     /**
@@ -51,9 +46,10 @@ public class Game
      */
     public void play()
     {
+        // TODO (fix) rename variable
         boolean i = false;
         
-
+        // TODO (fix) simplify test
         while (i == false)
         {
           System.out.print(this + "\n");
@@ -76,12 +72,8 @@ public class Game
         
     }
     
-        
-        
-    
 
 /**
- * @param joueur 
  * @see java.lang.Object#toString()
  */
 public String toString()
@@ -119,12 +111,14 @@ public String toString()
      * @return true if the character will die
      */
 
-    // TODO (fix) this method is game-related and should be moved to Game
+    // TODO (fix) this method should be private
    
     public boolean scrolling()
     {
+        // TODO (fix) use int instead of Integer
         final Integer x_hurdle = 9;
         final Integer y_hurdle = 3;
+        
         boolean game_over = false;
 
         for (int Y = 0; Y < COLUMNS - 1; Y++)

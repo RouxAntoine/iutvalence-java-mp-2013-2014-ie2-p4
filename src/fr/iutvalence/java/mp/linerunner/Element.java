@@ -27,12 +27,13 @@ public class Element
     
 
 /**
- * 
+ * constructor who take into account of the element's size
  * @param x0 value in Orderly 
  * @param y0 value in abscissa
  * @param height_define size of the new element created
- * constructor who take into account of the element's size
+ * 
  */
+    // TODO (fix) comply with naming conventions
     public Element(int x0,int y0,int height_define)
     {
         this.position = new Position(x0,y0);
@@ -51,9 +52,7 @@ public class Element
         this.height =DEFAULT_HEIGHT;
     }
 
-    
-    
-
+    // TODO (fix) finish writing comment
     /**
      * @return the value in Orderly and abscissa of the element concerned
      */
@@ -69,7 +68,6 @@ public class Element
      * 
      * @return a Boolean
      */
-    // TODO (fixed) rename this method (more explicit)
     public boolean moveUp()
     {
         boolean isjump = false;

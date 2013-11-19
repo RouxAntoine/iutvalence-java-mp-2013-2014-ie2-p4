@@ -7,6 +7,7 @@ package fr.iutvalence.java.mp.linerunner;
 
 public class Grid
 {
+    // TODO (fix) constants are duplicates (already declared in Game)
     /**
      * declaration of row's number
      */
@@ -20,13 +21,13 @@ public class Grid
 
     
     
+    // TODO (fix) declare relevant values asa constants
     /**
      * grid's declaration who is a area who contain many numbers who correspond
      * to a hurdle, character and void
      */
     public int[][] grid;
 
-    // TODO (fixed) detail comment (how is the grid once created?)
     /**
      * once created we've got a character on the screen and the player will jump or creep behind hurdles
      * constructor of one grid size ROWS*COLUMNS
@@ -43,6 +44,7 @@ public class Grid
             }
             this.grid[Y][ROWS - 1] = 4;
         }
+        // TODO (fix) declare hard-coded values as constants
         this.grid[5][3]=8;
     }
 
