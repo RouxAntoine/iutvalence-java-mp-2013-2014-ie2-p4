@@ -9,12 +9,12 @@ public class Position
     /**
      * coordinate in abscissa
      */
-    private final int x;
+    private int x;
     
     /**
      * coordinate in orderly
      */
-    private final int y;
+    private int y;
     
     /**
      * @param x0 value witch initialize x
@@ -41,6 +41,26 @@ public class Position
     {
         return this.y;
     }
+    
+    /**
+     * @param x new value will be attributed
+     * attributed a new value of the int x
+     */
+    public void setX(int x)
+    {
+        this.x = x;
+    }
+    
+    
+    /**
+     * @param y new value will be attributed
+     * attributed a new value of the int y
+     */
+    public void setY(int y)
+    {
+        this.y = y;
+    }
+    
     
     
 }

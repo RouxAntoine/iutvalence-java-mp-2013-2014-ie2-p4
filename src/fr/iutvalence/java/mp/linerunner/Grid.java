@@ -1,4 +1,6 @@
 package fr.iutvalence.java.mp.linerunner;
+import java.util.Random;
+
 
 /**
  * 
@@ -17,6 +19,10 @@ public class Grid
      */
     private static final int EMPTY=1;
     
+    /**
+     * variable who represent a void area in the grid
+     */
+    private static final int HURDLE=8;
     
     // TODO (fixed) declare relevant values as a constants
     /**
@@ -49,12 +55,31 @@ public class Grid
      * this method allow to insert a new obstacle in the grid with a random position
      * @return return an element with a random position
      */
-    public int obstacle()
+    public void obstacle()
     {
         
-        Element randObstacle= new Element(x0, y0);
-        return randObstacle;
+        int randx=Game.COLUMNS-2;
+        int randy=0;
+        
+        randy=new Random().nextInt(4);
+        
+        this.grid[randx][randy] = HURDLE;
     }
    
+    /**
+     * @return constant value of the hurdle case
+     */
+    public int getHurdle()
+    {
+        return HURDLE;
+    }
+    
+    /**
+     * @return constant value of the empty case
+     */
+    public int getEmpty()
+    {
+        return EMPTY;
+    }
     
 }

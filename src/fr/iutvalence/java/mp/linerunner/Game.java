@@ -37,7 +37,7 @@ public class Game
      */
     public Game()
     {
-        this.player1 = new Element(ROWS-3,2,2);
+        this.player1 = new Element(ROWS-2,2);
         this.grid = new Grid();  
     }
     
@@ -60,49 +60,25 @@ public class Game
                 Thread.sleep(1000);
             }
             catch (InterruptedException e){}
-            this.scrolling();
             
-
-            if (this.player1.moveUp())
+            Game_over = this.scrolling();
+            
+            
+            boolean conditionCanJump = (this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()-1] != this.grid.getHurdle() 
+                                    || this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1]!=this.grid.getEmpty());
+            
+            if (this.player1.moveUp() && conditionCanJump)
             {
-
+                this.player1.setPosition(this.player1.getPosition().getX()-1, this.player1.getPosition().getY());
             }
 
         }
+        System.out.println("Game over !!!");
         
     }
     
 
-/**
- * @see java.lang.Object#toString()
- */
-public String toString()
-{
-    boolean caracters=false;
-    String result = "";
 
-    for (int i = 0; i < ROWS; i++)
-    {
-        for (int j = 0; j < COLUMNS; j++)
-        {
-            
-            if (i==this.player1.getPosition().getX() && j== this.player1.getPosition().getY())
-            {
-                result += 3;
-                caracters=false;
-            }
-            else
-            {
-                result += this.grid.grid[j][i];
-            }
-            
-        }
-        result += "\n";
-    }
-
-    return result;
-}
-    
    
 
     /**
@@ -114,23 +90,60 @@ public String toString()
     // TODO (fixed) this method should be private
    
     private boolean scrolling()
-    {
-        // TODO (fixed) use int instead of Integer
-        final int x_hurdle = 9;
-        final int y_hurdle = 3;
-        
+    {   
         boolean game_over = false;
 
         for (int Y = 0; Y < COLUMNS - 1; Y++)
         {
             for (int X = 0; X < ROWS; X++)
             {
+                if(X == this.player1.getPosition().getX() && Y == this.player1.getPosition().getY()+1 && this.grid.grid[Y][X] == this.grid.getHurdle())
+                {
+                    game_over = true;
+                }
+                else
+                {
                     this.grid.grid[Y][X] = this.grid.grid[Y + 1][X];
+                }
             }
             this.grid.grid[Y][ROWS - 1] = 4;
         }
+        
+        this.grid.obstacle();
         return game_over;
-    }     
+    }
+    
+    
+    /**
+     * @see java.lang.Object#toString()
+     */
+    public String toString()
+    {
+        boolean caracters=false;
+        String result = "";
+
+        for (int i = 0; i < ROWS; i++)
+        {
+            for (int j = 0; j < COLUMNS; j++)
+            {
+                
+                if (i==this.player1.getPosition().getX() && j== this.player1.getPosition().getY())
+                {
+                    result += 3;
+                    caracters=false;
+                }
+                else
+                {
+                    result += this.grid.grid[j][i];
+                }
+                
+            }
+            result += "\n";
+        }
+
+        return result;
+    }
+        
 
         
 

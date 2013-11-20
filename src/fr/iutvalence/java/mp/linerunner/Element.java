@@ -2,6 +2,7 @@ package fr.iutvalence.java.mp.linerunner;
 
 import java.util.Random;
 
+
 /**
  * class who simulate one player
  * 
@@ -24,21 +25,7 @@ public class Element
      * height by default of one element
      */
     private final static int DEFAULT_HEIGHT=1;
-    
 
-/**
- * constructor who take into account of the element's size
- * @param x0 value in Orderly 
- * @param y0 value in abscissa
- * @param heightDefine size of the new element created
- * 
- */
-    // TODO (fixed) comply with naming conventions
-    public Element(int x0,int y0,int heightDefine)
-    {
-        this.position = new Position(x0,y0);
-        this.height = heightDefine;
-    }
     
     /***
      * 
@@ -62,6 +49,15 @@ public class Element
         return this.position;
     }
     
+    /**
+     * @param x the value in abscissa witch will be attributed at the element
+     * @param y the value in ordonna witch will be attributed at the element
+     */
+    public void setPosition(int x, int y)
+    {
+        this.position.setX(x);
+        this.position.setY(y);
+    }
     
     /**
      * this method return true if the player want to jump and false if he
@@ -79,7 +75,6 @@ public class Element
         {
             isjump = true;
         }
-        //System.out.print("\n" + valeur + "\n");
 
         return isjump;
     }
