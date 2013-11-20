@@ -18,10 +18,10 @@ public class Game
     public static final int COLUMNS = 10;
     
     
-    // TODO (fix) rewrite comment
+    // TODO (fixed) rewrite comment
     /**
-     * declaration of one variable who contain one object player
-     * (it will be like a joy-stick)
+     * an object who represent the character in the game
+     * 
      */
     private Element player1;
     
@@ -46,11 +46,11 @@ public class Game
      */
     public void play()
     {
-        // TODO (fix) rename variable
-        boolean i = false;
+        // TODO (fixed) rename variable
+        boolean Game_over = false;
         
-        // TODO (fix) simplify test
-        while (i == false)
+        // TODO (fixed) simplify test
+        while (!Game_over)
         {
           System.out.print(this + "\n");
             
@@ -111,13 +111,13 @@ public String toString()
      * @return true if the character will die
      */
 
-    // TODO (fix) this method should be private
+    // TODO (fixed) this method should be private
    
-    public boolean scrolling()
+    private boolean scrolling()
     {
-        // TODO (fix) use int instead of Integer
-        final Integer x_hurdle = 9;
-        final Integer y_hurdle = 3;
+        // TODO (fixed) use int instead of Integer
+        final int x_hurdle = 9;
+        final int y_hurdle = 3;
         
         boolean game_over = false;
 
@@ -130,45 +130,8 @@ public String toString()
             this.grid.grid[Y][ROWS - 1] = 4;
         }
         return game_over;
-    }
-        
-        /**
-         * // TODO (fixed) do not use hard-coded values but constants
+    }     
 
-        if (this.grid.grid[x_hurdle - 1][y_hurdle] != this.grid.getHurdle())
-        {
-            this.grid.grid[x_hurdle][y_hurdle] = HURDLE;
-        }
-
-        for (int Y = 0; Y < COLUMNS - 1; Y++)
-        {
-            for (int X = 0; X < ROWS; X++)
-            {
-                if (this.grid[Y + 1][X] != CHARACTER && this.grid[Y][X] != CHARACTER)
-                {
-                    this.grid[Y][X] = this.grid[Y + 1][X];
-                }
-
-            }
-            this.grid[Y][ROWS - 1] = GROUND;
-        }
-        if (this.grid[2][ROWS - 1] == HOLE && this.grid[2][ROWS - 2] == CHARACTER)
-        {
-            game_over = true;
-        }
-
-        this.grid[x_hurdle][y_hurdle] = NOTHING;
-        return game_over;
-         **/
-    
-    /**
-     * this method allow to insert a new obstacle in the grid with a random position
-     */
-    public void obstacle()
-    {
-        
-    }
-    
         
 
 }

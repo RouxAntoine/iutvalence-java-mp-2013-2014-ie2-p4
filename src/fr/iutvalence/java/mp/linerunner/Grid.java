@@ -7,21 +7,18 @@ package fr.iutvalence.java.mp.linerunner;
 
 public class Grid
 {
-    // TODO (fix) constants are duplicates (already declared in Game)
     /**
-     * declaration of row's number
+     * variable who represent the ground in the grid
      */
-    private static final int ROWS = 5;
-
-
+    private static final int GROUND=4;
+    
     /**
-     * declaration of column's number
+     * variable who represent a void area in the grid
      */
-    private static final int COLUMNS = 10;
-
+    private static final int EMPTY=1;
     
     
-    // TODO (fix) declare relevant values asa constants
+    // TODO (fixed) declare relevant values as a constants
     /**
      * grid's declaration who is a area who contain many numbers who correspond
      * to a hurdle, character and void
@@ -34,22 +31,30 @@ public class Grid
      */
     public Grid()
     {
-        this.grid = new int[COLUMNS][ROWS];
+        this.grid = new int[Game.COLUMNS][Game.ROWS];
 
-        for (int Y = 0; Y < COLUMNS; Y++)
+        for (int Y = 0; Y < Game.COLUMNS; Y++)
         {
-            for (int X = 0; X < ROWS; X++)
+            for (int X = 0; X < Game.ROWS; X++)
             {
-                this.grid[Y][X] = 1;
+                this.grid[Y][X] = EMPTY;
             }
-            this.grid[Y][ROWS - 1] = 4;
+            this.grid[Y][Game.ROWS - 1] = GROUND;
         }
-        // TODO (fix) declare hard-coded values as constants
-        this.grid[5][3]=8;
     }
-
-/**
- * 
- */    
+    
+    
+    
+    /**
+     * this method allow to insert a new obstacle in the grid with a random position
+     * @return return an element with a random position
+     */
+    public int obstacle()
+    {
+        
+        Element randObstacle= new Element(x0, y0);
+        return randObstacle;
+    }
+   
     
 }

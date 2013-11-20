@@ -30,14 +30,14 @@ public class Element
  * constructor who take into account of the element's size
  * @param x0 value in Orderly 
  * @param y0 value in abscissa
- * @param height_define size of the new element created
+ * @param heightDefine size of the new element created
  * 
  */
-    // TODO (fix) comply with naming conventions
-    public Element(int x0,int y0,int height_define)
+    // TODO (fixed) comply with naming conventions
+    public Element(int x0,int y0,int heightDefine)
     {
         this.position = new Position(x0,y0);
-        this.height = height_define;
+        this.height = heightDefine;
     }
     
     /***
@@ -52,9 +52,10 @@ public class Element
         this.height =DEFAULT_HEIGHT;
     }
 
-    // TODO (fix) finish writing comment
+    // TODO (fixed) finish writing comment
     /**
      * @return the value in Orderly and abscissa of the element concerned
+     * method who return the position of the current element
      */
     public Position getPosition()
     {
