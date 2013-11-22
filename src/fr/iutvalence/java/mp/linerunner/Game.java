@@ -54,7 +54,6 @@ public class Game
         {
           System.out.print(this + "\n");
             
-            
             try
             {
                 Thread.sleep(1000);
@@ -64,13 +63,16 @@ public class Game
             Game_over = this.scrolling();
             
             
-            boolean conditionCanJump = (this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()-1] != this.grid.getHurdle() 
-                                    || this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1]!=this.grid.getEmpty());
+            boolean conditionCanJump = (this.player1.getPosition().getX()!=0 &&
+                 (this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()-1] != this.grid.getHurdle() 
+               || this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1]!=this.grid.getEmpty()));
             
-            if (this.player1.moveUp() && conditionCanJump)
-            {
-                this.player1.setPosition(this.player1.getPosition().getX()-1, this.player1.getPosition().getY());
+            
+            if (conditionCanJump)
+            {   
+                this.jump(this.player1.moveUp());
             }
+            
 
         }
         System.out.println("Game over !!!");
@@ -111,6 +113,23 @@ public class Game
         
         this.grid.obstacle();
         return game_over;
+    }
+    
+    
+    /**
+     * method who manage one jump integraly
+     */
+    private void jump(boolean wantjump)
+    {
+        if(wantjump)
+        {
+            this.player1.setPosition(this.player1.getPosition().getX()-1, this.player1.getPosition().getY());
+            System.out.print(this + "\n");
+            this.scrolling();
+            //if(this.player1.getPosition().getX()==)  //current modification
+            System.out.print(this + "\n");
+            this.player1.setPosition(this.player1.getPosition().getX()+1, this.player1.getPosition().getY());
+        }
     }
     
     
