@@ -18,9 +18,8 @@ public class Game
     public static final int COLUMNS = 10;
     
     
-    // TODO (fixed) rewrite comment
     /**
-     * an object who represent the character in the game
+     * an object who represents the character in the game
      * 
      */
     private Element player1;
@@ -46,10 +45,9 @@ public class Game
      */
     public void play()
     {
-        // TODO (fixed) rename variable
+        // TODO (fix) comply with naming conventions
         boolean Game_over = false;
         
-        // TODO (fixed) simplify test
         while (!Game_over)
         {
           System.out.print(this + "\n");
@@ -89,8 +87,6 @@ public class Game
      * @return true if the character will die
      */
 
-    // TODO (fixed) this method should be private
-   
     private boolean scrolling()
     {   
         boolean game_over = false;

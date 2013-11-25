@@ -39,10 +39,10 @@ public class Element
         this.height =DEFAULT_HEIGHT;
     }
 
-    // TODO (fixed) finish writing comment
     /**
+     * method who returns the position of the current element
      * @return the value in Orderly and abscissa of the element concerned
-     * method who return the position of the current element
+     * 
      */
     public Position getPosition()
     {

@@ -14,6 +14,7 @@ public class TabHurdle
  */
 private Element[] tab;
     
+// TODO (fix) this class seems to be unused, so remove it
  /**
  * @param size of the tab of Element
  * constructor who create the table who contain 10 element

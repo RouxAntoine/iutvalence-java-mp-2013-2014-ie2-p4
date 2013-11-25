@@ -24,7 +24,6 @@ public class Grid
      */
     private static final int HURDLE=8;
     
-    // TODO (fixed) declare relevant values as a constants
     /**
      * grid's declaration who is a area who contain many numbers who correspond
      * to a hurdle, character and void
