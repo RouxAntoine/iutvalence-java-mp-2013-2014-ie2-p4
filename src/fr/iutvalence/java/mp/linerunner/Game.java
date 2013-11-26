@@ -47,29 +47,43 @@ public class Game
     {
         // TODO (fix) comply with naming conventions
         boolean Game_over = false;
+        System.out.print(this + "\n");
         
         while (!Game_over)
         {
-          System.out.print(this + "\n");
+          
             
             try
             {
                 Thread.sleep(1000);
             }
             catch (InterruptedException e){}
-            
-            Game_over = this.scrolling();
-            
+
             
             boolean conditionCanJump = (this.player1.getPosition().getX()!=0 &&
                  (this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()-1] != this.grid.getHurdle() 
                || this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1]!=this.grid.getEmpty()));
             
-            
+          
             if (conditionCanJump)
-            {   
+            {
                 this.jump(this.player1.moveUp());
             }
+            
+            Game_over = this.scrolling();
+            System.out.print(this + "\n");   //affichage de la grille
+            
+            
+            System.out.println(this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()-1]);
+            System.out.print(this.grid.getEmpty()+"\n");
+            System.out.println(this.player1.getPosition().getX());
+            System.out.print(this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1]+"\n");
+            
+            if(this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1] == this.grid.getEmpty())
+            {
+                this.player1.setPosition(this.player1.getPosition().getX()+1,this.player1.getPosition().getY());
+            }
+  
             
 
         }
@@ -120,11 +134,6 @@ public class Game
         if(wantjump)
         {
             this.player1.setPosition(this.player1.getPosition().getX()-1, this.player1.getPosition().getY());
-            System.out.print(this + "\n");
-            this.scrolling();
-            //if(this.player1.getPosition().getX()==)  //current modification
-            System.out.print(this + "\n");
-            this.player1.setPosition(this.player1.getPosition().getX()+1, this.player1.getPosition().getY());
         }
     }
     
