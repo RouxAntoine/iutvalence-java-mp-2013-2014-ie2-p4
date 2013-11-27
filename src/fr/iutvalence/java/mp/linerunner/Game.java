@@ -45,11 +45,11 @@ public class Game
      */
     public void play()
     {
-        // TODO (fix) comply with naming conventions
-        boolean Game_over = false;
+        // TODO (fixed) comply with naming conventions
+        boolean gameOver = false;
         System.out.print(this + "\n");
         
-        while (!Game_over)
+        while (!gameOver)
         {
           
             
@@ -70,7 +70,7 @@ public class Game
                 this.jump(this.player1.moveUp());
             }
             
-            Game_over = this.scrolling();
+            gameOver = this.scrolling();
             System.out.print(this + "\n");   //affichage de la grille
             
             
