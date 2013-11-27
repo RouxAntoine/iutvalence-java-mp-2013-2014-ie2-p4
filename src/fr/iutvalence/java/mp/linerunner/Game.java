@@ -40,6 +40,8 @@ public class Game
         this.grid = new Grid();  
     }
     
+    private boolean action;
+    
     /**
      * 
      */
@@ -47,7 +49,6 @@ public class Game
     {
         // TODO (fixed) comply with naming conventions
         boolean gameOver = false;
-        System.out.print(this + "\n");
         
         while (!gameOver)
         {
@@ -60,29 +61,32 @@ public class Game
             catch (InterruptedException e){}
 
             
-            boolean conditionCanJump = (this.player1.getPosition().getX()!=0 &&
+            boolean CanJump = (this.player1.getPosition().getX()!=0 &&
                  (this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()-1] != this.grid.getHurdle() 
-               || this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1]!=this.grid.getEmpty()));
+               && this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1]!=this.grid.getEmpty()));
             
-          
-            if (conditionCanJump)
+            boolean CanFall= this.grid.grid[this.player1.getPosition().getY()+1][this.player1.getPosition().getX()+1] == this.grid.getEmpty()
+                    || this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1] == this.grid.getEmpty();
+                    
+            
+            if (CanJump)
             {
                 this.jump(this.player1.moveUp());
             }
-            
-            gameOver = this.scrolling();
-            System.out.print(this + "\n");   //affichage de la grille
-            
-            
-            System.out.println(this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()-1]);
-            System.out.print(this.grid.getEmpty()+"\n");
-            System.out.println(this.player1.getPosition().getX());
-            System.out.print(this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1]+"\n");
-            
-            if(this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1] == this.grid.getEmpty())
+            else if(CanFall)
             {
-                this.player1.setPosition(this.player1.getPosition().getX()+1,this.player1.getPosition().getY());
+                this.fall();  
             }
+            System.out.println(this.player1.getPosition().getX()+"\n");
+ 
+            gameOver = this.scrolling();
+            if(this.player1.getPosition().getX()==4)
+            {
+                gameOver=true;
+            }
+            
+            System.out.print(this + "\n");   //affichage de la grille
+
   
             
 
@@ -90,7 +94,26 @@ public class Game
         System.out.println("Game over !!!");
         
     }
-    
+
+/**
+ * method who manage one jump integraly
+ * @param wantJump boolean condition who significate if the player want jump
+ */
+private void jump(boolean wantJump)
+{
+    if(wantJump)
+    {
+        this.player1.setPosition(this.player1.getPosition().getX()-1, this.player1.getPosition().getY());
+    }
+}
+
+/**
+ * method who will go down the character where there is the empty behind
+ */
+private void fall()
+{
+        this.player1.setPosition(this.player1.getPosition().getX()+1,this.player1.getPosition().getY());
+}
 
 
    
@@ -112,31 +135,19 @@ public class Game
                 if(X == this.player1.getPosition().getX() && Y == this.player1.getPosition().getY()+1 && this.grid.grid[Y][X] == this.grid.getHurdle())
                 {
                     game_over = true;
+                    this.grid.grid[Y][X] = this.grid.grid[Y + 1][X];
                 }
                 else
                 {
                     this.grid.grid[Y][X] = this.grid.grid[Y + 1][X];
                 }
             }
-            this.grid.grid[Y][ROWS - 1] = 4;
         }
         
         this.grid.obstacle();
         return game_over;
     }
-    
-    
-    /**
-     * method who manage one jump integraly
-     */
-    private void jump(boolean wantjump)
-    {
-        if(wantjump)
-        {
-            this.player1.setPosition(this.player1.getPosition().getX()-1, this.player1.getPosition().getY());
-        }
-    }
-    
+
     
     /**
      * @see java.lang.Object#toString()

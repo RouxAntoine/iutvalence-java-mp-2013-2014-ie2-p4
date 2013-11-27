@@ -60,9 +60,15 @@ public class Grid
         int randx=Game.COLUMNS-2;
         int randy=0;
         
-        randy=new Random().nextInt(4);
-        
-        this.grid[randx][randy] = HURDLE;
+        randy=new Random().nextInt(5);
+        if(randy==4)
+        {
+            this.grid[randx][randy] = EMPTY;
+        }
+        else
+        {
+            this.grid[randx][randy] = HURDLE;
+        }
     }
    
     /**
