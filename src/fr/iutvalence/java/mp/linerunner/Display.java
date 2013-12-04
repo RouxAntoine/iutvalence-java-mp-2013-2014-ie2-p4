@@ -6,52 +6,36 @@ package fr.iutvalence.java.mp.linerunner;
  */
 public class Display
 {
-    
-    /**
-     *  screen is a table who represent the screen with many number for represent the hurdle and the character
-     */
-    private int[][] screen;
-    
+
     /**
      * constructors
+     * @param  
      * @param Hurdles the table who contain all the hurdle
      */
-    public Display(TabHurdle Hurdles)
-    {
-        this.screen=new int [Game.ROWS][Game.COLUMNS];
-        
-        for(int j=0;j< Game.COLUMNS;j++)
-        {
-            for(int i=0;i< Game.ROWS;i++)
-            {
-                if (i==Game.ROWS-1)
-                {
-                    this.screen[i][j]=4;
-                }
-                else
-                {
-                    this.screen[i][j]=1;
-                }
-            }
-        }
-        
-    }
 
-    
-    public String toString()
+    public void affiche(Grid grid , Element player1)
     {
-        String result = "";
-
+        boolean caracters=false;
+        
         for (int i = 0; i < Game.ROWS; i++)
         {
             for (int j = 0; j < Game.COLUMNS; j++)
             {
-                System.out.print(this.screen[i][j]);
+                
+                if (i==player1.getPosition().getX() && j== player1.getPosition().getY())
+                {
+                    System.out.print("3");
+                    caracters=false;
+                }
+                else
+                {
+                    System.out.print(grid.grid[j][i]);
+                }
             }
             System.out.print("\n");
         }
-
-        return result;
+        System.out.print("\n");
+        
     }
 
 }

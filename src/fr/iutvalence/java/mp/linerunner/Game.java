@@ -28,6 +28,11 @@ public class Game
      * create a variable who contain the object who can display the game
      */
     private Grid grid;
+    
+    /**
+     * attibut who allow to display the grid
+     */
+    private Display affichage;
 
     /**
      * once created we've got a character on the screen and the player will jump or creep behind hurdles
@@ -37,7 +42,8 @@ public class Game
     public Game()
     {
         this.player1 = new Element(ROWS-2,2);
-        this.grid = new Grid();  
+        this.grid = new Grid();
+        this.affichage = new Display();
     }
     
     private boolean action;
@@ -77,7 +83,6 @@ public class Game
             {
                 this.fall();  
             }
-            System.out.println(this.player1.getPosition().getX()+"\n");
  
             gameOver = this.scrolling();
             if(this.player1.getPosition().getX()==4)
@@ -85,10 +90,7 @@ public class Game
                 gameOver=true;
             }
             
-            System.out.print(this + "\n");   //affichage de la grille
-
-  
-            
+            this.affichage.affiche(this.grid,this.player1);
 
         }
         System.out.println("Game over !!!");
