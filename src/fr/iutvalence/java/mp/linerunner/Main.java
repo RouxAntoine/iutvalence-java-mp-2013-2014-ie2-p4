@@ -1,12 +1,10 @@
 package fr.iutvalence.java.mp.linerunner;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  * Default game launcher
  */
 
-public class Main extends JFrame
+public class Main
 {
     
     /**
@@ -26,14 +24,8 @@ public class Main extends JFrame
     {
         Game currentGame;
         currentGame = new Game();
-        
-        JFrame fenetre = new JFrame();
-        fenetre.setSize(0, 0);
-        fenetre.setResizable(false);
-        fenetre.setVisible(true);
-        fenetre.addKeyListener(null);
         currentGame.play();
-        fenetre.dispose();
+
         
     }
 }

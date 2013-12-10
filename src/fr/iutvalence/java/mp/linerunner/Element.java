@@ -59,25 +59,7 @@ public class Element
         this.position.setY(y);
     }
     
-    /**
-     * this method return true if the player want to jump and false if he
-     * doesn't want
-     * 
-     * @return a Boolean
-     */
-    public boolean moveUp()
-    {
-        boolean isjump = false;
 
-        int valeur = new Random().nextInt(4);
-
-        if (valeur == 0)
-        {
-            isjump = true;
-        }
-
-        return isjump;
-    }
     
     /**
      * @see java.lang.Object#toString()

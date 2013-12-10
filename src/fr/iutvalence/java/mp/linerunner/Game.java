@@ -1,10 +1,17 @@
 package fr.iutvalence.java.mp.linerunner;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
 /**
  * this class is one gameplay whose rules are in the README file.
  * 
  */
-public class Game
+public class Game 
 {
     
     /**
@@ -35,6 +42,11 @@ public class Game
     private Display affichage;
 
     /**
+     * Move is an object who return true if the player wants jump
+     */
+    private Mover Move;
+    
+    /**
      * once created we've got a character on the screen and the player will jump or creep behind hurdles
      * constructors who create a new grid for each new game and make a scroll of
      * this grid
@@ -44,6 +56,7 @@ public class Game
         this.player1 = new Element(ROWS-2,2);
         this.grid = new Grid();
         this.affichage = new Display();
+        this.Move = new Mover();     
     }
     
     private boolean action;
@@ -59,14 +72,14 @@ public class Game
         while (!gameOver)
         {
           
-            
             try
             {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             }
             catch (InterruptedException e){}
 
             
+
             boolean CanJump = (this.player1.getPosition().getX()!=0 &&
                  (this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()-1] != this.grid.getHurdle() 
                && this.grid.grid[this.player1.getPosition().getY()][this.player1.getPosition().getX()+1]!=this.grid.getEmpty()));
@@ -77,7 +90,7 @@ public class Game
             
             if (CanJump)
             {
-                this.jump(this.player1.moveUp());
+                this.jump(this.Move.moveUp());
             }
             else if(CanFall)
             {
@@ -94,7 +107,7 @@ public class Game
 
         }
         System.out.println("Game over !!!");
-        
+        this.Move.stopFenetre();
     }
 
 /**
@@ -180,8 +193,9 @@ private void fall()
 
         return result;
     }
-        
-
-        
-
+                
 }
+
+
+
+
